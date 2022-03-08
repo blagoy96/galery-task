@@ -1,6 +1,11 @@
 import GoogleLogin from "react-google-login";
+import context from "./LoginContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function LoginPage() {
+  const navigate = useNavigate();
+  const { setLoginData } = useContext(context);
   const customStyle = {
     position: "fixed",
     top: "50%",
@@ -9,7 +14,8 @@ function Login() {
     marginLeft: "-100px",
   };
   const handleLogin = (googleData) => {
-    console.log(googleData);
+    setLoginData(googleData.profileObj);
+    navigate("/gallery");
   };
   const handleFailure = (result) => {
     alert(result);
@@ -32,4 +38,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;
