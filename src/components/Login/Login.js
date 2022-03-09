@@ -1,5 +1,5 @@
 import GoogleLogin from "react-google-login";
-import context from "./LoginContext";
+import context from "../Context/Context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 

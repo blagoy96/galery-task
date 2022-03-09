@@ -1,0 +1,9 @@
+header {
+  background-color: #04aa6d;
+  padding-bottom: 10px;
+}
+.loginName {
+  text-align: right;
+  padding-right: 10%;
+  color: aliceblue;
+}

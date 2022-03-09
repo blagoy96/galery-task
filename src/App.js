@@ -1,17 +1,17 @@
 import "./App.css";
-import Login from "./components/Login/Login";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import LoginProvider from "./components/Login/LoginProvider";
+import Login from "./components/Login/Login";
+import ContextProvider from "./components/Login/ContextProvider";
+import GalleryPage from "./components/GalleryPage/GalleryPage";
 
 function App() {
   return (
-    <LoginProvider>
+    <ContextProvider>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/gallery" element={<Header />} />
+        <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
-    </LoginProvider>
+    </ContextProvider>
   );
 }
 

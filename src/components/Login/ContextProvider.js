@@ -1,4 +1,4 @@
-import context from "./LoginContext";
+import context from "../Context/Context";
 import { useState } from "react";
 
 function ContextProvider({ children }) {
