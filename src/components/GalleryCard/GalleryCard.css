@@ -1,4 +1,22 @@
 .card {
-  border-style: solid;
-  margin-right: 50%;
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+.description {
+  display: block;
+  padding-left: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  color: whitesmoke;
+}
+img {
+  width: 250px;
+  height: auto;
+}
+.container {
+  border-left: solid;
+  border-bottom: solid;
+  margin: 1px 1px 1px 1px;
+  border-color: rgba(245, 245, 245, 0.555);
+  border-radius: 15px 15px 15px 15px;
 }
