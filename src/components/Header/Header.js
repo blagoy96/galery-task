@@ -4,13 +4,7 @@ import { useContext } from "react";
 function Header() {
   const { loginData } = useContext(context);
 
-  return (
-    <>
-      <header>
-        <div className="loginName">{loginData.givenName}</div>
-      </header>
-    </>
-  );
+  return <header className="loginName">{loginData.givenName}</header>;
 }
 
 export default Header;

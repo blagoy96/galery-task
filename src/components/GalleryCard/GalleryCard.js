@@ -9,8 +9,8 @@ function GalleryCard({ imgData }) {
     <div className="container">
       <div className="card">
         <img src={imgUrl} alt={imgTagDescription} />
+        <title className="description">{imgTagDescription}</title>
       </div>
-      <title className="description">{imgTagDescription}</title>
     </div>
   );
 }
