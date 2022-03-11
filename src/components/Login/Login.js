@@ -1,39 +1,32 @@
-import GoogleLogin from "react-google-login";
-import context from "../Context/Context";
-import { useContext } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGoogleAuth } from "./GoogleAuthProvider";
 
 function LoginPage() {
+  const googleAuth = useGoogleAuth();
   const navigate = useNavigate();
-  const { setLoginData } = useContext(context);
-  const customStyle = {
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    marginTop: "-50px",
-    marginLeft: "-100px",
-  };
-  const handleLogin = (googleData) => {
-    setLoginData(googleData.profileObj);
-    navigate("/gallery");
-  };
-  const handleFailure = (result) => {
-    alert(result);
-  };
+
+  useEffect(() => {
+    if (googleAuth.isInitialized && googleAuth.isSignedIn) {
+      navigate("/gallery");
+    }
+  }, [googleAuth, navigate]);
+
   return (
     <>
-      <GoogleLogin
-        render={(renderProps) => (
-          <div style={customStyle}>
-            <button onClick={renderProps.onClick}>login</button>
-          </div>
-        )}
-        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        buttonText="Log in with Google"
-        onSuccess={handleLogin}
-        onFailure={handleFailure}
-        cookiePravicy={"single_host_origin"}
-      ></GoogleLogin>
+      {googleAuth.isInitialized && !googleAuth.isSignedIn && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            marginTop: "-50px",
+            marginLeft: "-100px",
+          }}
+        >
+          <button onClick={googleAuth.signIn}>login</button>
+        </div>
+      )}
     </>
   );
 }

@@ -1,8 +1,8 @@
+import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Search from "../Search/Search";
 import GalleryCard from "../GalleryCard/GalleryCard";
 import "./GalleryPage.css";
-import { useState, useEffect } from "react";
 
 function GalleryPage() {
   const [imgData, setImgData] = useState([]);

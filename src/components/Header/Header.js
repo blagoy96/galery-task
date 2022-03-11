@@ -1,10 +1,12 @@
-import context from "../Context/Context";
-import ".//Header.css";
-import { useContext } from "react";
+import { useGoogleAuth } from "../Login/GoogleAuthProvider";
+import "./Header.css";
 function Header() {
-  const { loginData } = useContext(context);
+  const { isInitialized, googleUser } = useGoogleAuth();
+  const username = isInitialized
+    ? googleUser?.profileObj?.givenName ?? "Unknown user"
+    : "";
 
-  return <header className="loginName">{loginData.givenName}</header>;
+  return <header className="loginName">{username}</header>;
 }
 
 export default Header;
