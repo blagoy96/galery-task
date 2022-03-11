@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useGoogleLogin } from "react-use-googlelogin";
 
 const GoogleAuthContext = React.createContext();
